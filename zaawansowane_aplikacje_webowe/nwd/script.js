@@ -1,27 +1,21 @@
-// Implementacja algorytmu NWD wykorzystująca odejmowanie
+"use strict";
 
-// function NWD(a, b) {
-//     while (a !== b) {
-//         if (a > b) a -= b;
-//         else b -= a; 
-//     }
-    
-//    return a; // albo b 
-// }
-
-// Implementacja algorytmu NWD wykorzystujący dzielenie
+const calculate = document.getElementById("calculate");
+const result = document.getElementById("result");
 
 function NWD(a, b) {
-    while (a % b !== 0) {
-        a = b;
-        b = a % b;
+    while(a !== b) {
+        if (a > b) a -= b;
+        else b -= a;
     }
 
-    return b;
+    return a; // albo b
 }
 
-let a = 15;
-let b = 5;
 
-console.log("NWD(" + a + ", " + b + ") = " + NWD(a, b));
+calculate.addEventListener("click", function() {
+    const a = Number(document.getElementById("a").value);
+    const b = Number(document.getElementById("b").value);
 
+    result.innerHTML = "NWD(" + a + ", " + b + ") = " + NWD(a, b);
+});

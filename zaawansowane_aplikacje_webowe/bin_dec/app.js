@@ -1,67 +1,51 @@
-"use strict"
+"use strict";
 
-function binaryToDecimal(binary) {
-    let decimal = 0;
-    let power = 1;
+import {binaryToDecimal, decimalToBinary} from "./utilities.js"; 
+import { isStringBinary, isStringDecimal } from "./validate.js";
 
-    for(let i =  binary.length - 1; i >= 0; i--) {
-        if(binary[i] === '1') decimal += power;
-        power *= 2;      
-    }
+const mode = document.getElementById("mode");
+const input = document.getElementById("input");
+const result = document.getElementById("result");
+const title = document.getElementById("title");
+const convert = document.getElementById("convert");
 
-    return decimal;
-}
+const binToDecPlaceholder = "np. 10110";
+const decToBinPlaceholder = "np. 15679";
 
-// console.log(binaryToDecimal("101"));
-// console.log(binaryToDecimal("111110"));
-// console.log(binaryToDecimal("101001"));
-
-function decimalToBinary(decimal) {
-    let binary = "";
-
-    while(decimal > 0) {
-        if(decimal % 2 === 0) binary = '0' + binary;
-        else binary = '1' + binary;
-
-        decimal /= 2;
-        decimal = parseInt(decimal);
-    }
-
-    return binary;
-}
-
-// console.log(decimalToBinary(5));
-// console.log(decimalToBinary(123));
-// console.log(decimalToBinary(90));
-
-let type = document.getElementById("type");
-let input = document.getElementById("input");
-let result = document.getElementById("result");
-
-// type - typ konwersji e.g. bin na dec albo dec na bin
-// input - wartosc wprowadzona przez uzytkownika
-// result - przechowuje wynik konwersji 
-
-let binToDecPlaceholder = "np. 10110";
-let decToBinPlaceholder = "np. 15679";
-
-addEventListener("submit", function(event) {
+convert.addEventListener("click", function(event) {
     event.preventDefault();
+    result.style.color = "blue";
+    
+    if (mode.value === "binToDec") {
+        if (!isStringBinary(input.value)) {
+            result.style.color = "red";
+            result.innerText = "Niepoprawny format. W trybie binarnym użyj wyłącznie 0 i 1";
+            return;
+        } 
 
-    if (type.value === "binToDec") result.innerText = binaryToDecimal(input.value);
-    else result.innerText = decimalToBinary(input.value);
+        result.innerText = binaryToDecimal(input.value);
+    }
+    else {
+        if (!isStringDecimal(input.value)) {
+            result.style.color = "red";
+            result.innerText = "Niepoprawny format. W trybie dziesiętnym użyj wyłącznie cyfr 0-9";
+            return;
+        } 
+
+        result.innerText = decimalToBinary(input.value);
+    }
 });
 
-addEventListener("reset", function() {
-    result.innerText = "";
-    input.placeholder = binToDecPlaceholder;
-
-});
-
-type.addEventListener("change", function() {
+mode.addEventListener("change", function() {
     result.innerText = "";
     input.value = "";
 
-    if (type.value === "binToDec") input.placeholder = binToDecPlaceholder;
-    else input.placeholder = decToBinPlaceholder;
+    if (mode.value === "binToDec") {
+        input.placeholder = binToDecPlaceholder;
+        title.innerText = "Liczba binarna: ";
+    }
+    else {
+        input.placeholder = decToBinPlaceholder;
+        title.innerText = "Liczba dziesiętna: ";
+    } 
 });

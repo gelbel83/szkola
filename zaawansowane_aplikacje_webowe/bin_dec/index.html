@@ -8,7 +8,7 @@
         <title>Konwersja</title>
 
         <style>
-            form * {
+            body > * {
                 margin: 3px;
             }
         </style>
@@ -17,26 +17,21 @@
     <body>
         <h2>Konwerter binarny dziesiętny</h2>
 
-        <form>
-            <p>Liczba binarna: </p>
-            <input id="input" placeholder="np. 10110" />
+        <p id="title">Liczba binarna: </p>
+        <input id="input" placeholder="np. 10110" /> <br />
 
-            <br />
+        <select id="mode">
+            <option value="binToDec">Binarny -> Dziesiętny</option>
+            <option value="decToBin">Dziesiętny -> Binarny</option>
+        </select>
 
-            <select id="type">
-                <option value="binToDec">Binarny -> Dziesiętny</option>
-                <option value="decToBin">Dziesiętny -> Binarny</option>
-            </select>
-
-            <input type="reset" />
-            <input type="submit" value="Konwertuj"/> 
-        </form>
+        <input type="button" value="Konwertuj" id="convert"/> <br />
 
         <br />
 
         <p>Wynik: </p>
         <span id="result"></span>
-        
-        <script src="app.js"></script>
     </body>
+
+    <script type="module" src="app.js"></script>
 </html>

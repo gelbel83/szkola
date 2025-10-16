@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="pl" />
+        <meta charset="UTF-8" />
+        <title>Montaż paneli podłogowych</title>
+        <link rel="stylesheet" href="style.css" type="text/css" />
+    </head>
+
+    <body>
+        <header>
+            <img src="montaz_paneli.png" alt="firma_usługowa" />
+        </header>
+
+        <menu>
+            <a href="index.html">Strona Główna</a>
+            <a href="oferta.html">Oferta</a>
+            <a href="koszty.html">Kalkulator kosztów</a>
+        </menu>
+
+        <main>
+            <h1>Kalkulator kosztów montażu</h1>
+            Szerokość pomieszczenia [m]: <input type="number" id="szerokosc"/>
+            Długość pomieszczenia [m]: <input type="number" id="dlugosc"/>
+            <p>Typ panelu</p>
+            <input type="radio" name="typPanelu" id="laminowane" checked="checked"/> Panele laminowane <br />
+            <input type="radio" name="typPanelu" id="winylowe" /> Panele winylowe <br />
+            <input type="radio" name="typPanelu" id="deska" /> Deska podłogowa <br /> <br />
+            <button id="oblicz">Oblicz</button>
+            <p id="wynik"></p>
+        </main>
+
+        <footer>
+            <h5>Autor strony: Konrad Goliński</h5>
+        </footer>
+
+        <script>
+            let oblicz = document.getElementById("oblicz");
+            let wynik = document.getElementById("wynik");
+
+            oblicz.addEventListener("click", function() {
+                let szerokosc = document.getElementById("szerokosc").value;
+                let dlugosc = document.getElementById("dlugosc").value;
+
+                let laminowane = document.getElementById("laminowane").checked;
+                let winylowe = document.getElementById("winylowe").checked;
+                let deska = document.getElementById("deska").checked;
+
+                let pole = szerokosc * dlugosc;
+                let koszt;
+
+                if(laminowane) koszt = 12 * pole;
+                else if (winylowe) koszt = 14 * pole;
+                else if (deska) koszt = 18 * pole;
+
+                wynik.innerText = "Pole powierzchni pomieszczenia: " + pole + ", koszt montażu " + koszt;
+            });
+                
+            
+        </script>
+    </body>
+</html>

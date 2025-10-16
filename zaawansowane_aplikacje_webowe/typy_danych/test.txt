@@ -1,0 +1,19 @@
+1. Wypisz wartosci ktore w kontekscie logicznym w javascript sa traktowane jako false
+
+false
+0
+-0
+0n (bigInt)
+""
+null
+undefined
+NaN
+
+2. Wyjasnij kiedy operacja A && B zwraca 
+A - kiedy A jest fałszywe
+B - kiedy A jest prawdziwe
+
+3. Wyjasnij kiedy operacja A || B zwroci
+A - kiedy A jest prawdziwe
+B - kiedy A jest fałszywe
+

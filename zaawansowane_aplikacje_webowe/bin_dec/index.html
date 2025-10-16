@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="pl" />
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Konwersja</title>
+
+        <style>
+            form * {
+                margin: 3px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <h2>Konwerter binarny dziesiętny</h2>
+
+        <form>
+            <p>Liczba binarna: </p>
+            <input id="input" placeholder="np. 10110" />
+
+            <br />
+
+            <select id="type">
+                <option value="binToDec">Binarny -> Dziesiętny</option>
+                <option value="decToBin">Dziesiętny -> Binarny</option>
+            </select>
+
+            <input type="reset" />
+            <input type="submit" value="Konwertuj"/> 
+        </form>
+
+        <br />
+
+        <p>Wynik: </p>
+        <span id="result"></span>
+        
+        <script src="app.js"></script>
+    </body>
+</html>

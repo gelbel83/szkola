@@ -1,0 +1,533 @@
+ewreczycka@zs4.tychy.edu.pl 
+W temacie: klasa, gr, nazwisko, imię, temat pracy
+
+Ocenianie	
+0% - 29% -> ndst
+30% - 49% -> dop
+50% - 69% -> dst
+70% - 89% -> db
+90% - 99% -> bdb
+100% -> cel
+	
+Zadanie typu egzaminacyjnego
+0% - 50% -> ndst
+51% - 65% -> dop
+66% - 75% -> dst
+76% - 90% -> db
+91% - 99% -> bdb
+100% -> cel
+
+Temat: Podstawowe pojęcia
+
+Programowanie komputerowe - proces tworzenia programu komputerowego, gdzie program komputerowy – zestaw instrukcji dla komputera
+Programowanie – pisanie programów (aplikacji)
+Etapy tworzenia programu komputerowego
+Zdefiniowanie problemu do rozwiązania
+Planowanie rozwiązania
+Kodowanie programu
+Testowanie programu
+Dokumentowanie programu
+Kompilator - Program zamieniający kod źródłowy na kod maszynowy
+Interpreter - tłumaczy kod programu instrukcja po instrukcji i wykonuje każdą z nich zaraz po przetłumaczeniu
+IDE - Zintegrowane środowisko programistyczne
+Walidacja - Sprawdzanie poprawności danych wprowadzanych
+Debugowanie - Wykrywanie, lokalizowanie, eliminowanie i korygowanie błędów logicznych.
+
+Temat: Podstawy algorytmiki
+
+Algorytm – Zestaw instrukcji których celem jest rozwiązanie problemu
+Sposoby przedstawienia algorytmu:
+Schemat blokowy
+Elipsa – START / STOP
+Prostokąt – blok obliczeniowy
+Równoległobok – blok wejścia wyjścia
+Romb – blok decyzyjny
+
+b) Lista kroków – lista wypisana w punktach 
+i wypisz c.
+Wprowadź a i b
+Sprawdź czy b = 0. Jeśli  tak, wypisz ze nie można dzielić przez zero I wróć do punktu pierwszego. Jeśli nie, kontynuuj.
+c = a / b
+Wypisz c			
+Drzewo decyzyjne - graficzne przedstawienie instrukcji za pomocą prostokątów z liniami przepływu  - tak / nie
+	
+	
+d)  Opis słowny -
+e) Pseudokod
+f) Program komputerowy
+
+Temat: Środowiska programistyczne
+
+1. Code::Blocks – open source, darmowe, IDE
+2. CodeLite – open source, darmowe, IDE
+3. Eclipse – IDE, CDT, wieloplatformowe
+4. NetBeans – front-end i back-end
+5. CLion – IDE, komercyjne
+7. Visual Studio – IDE
+
+Temat: Podstawowe elementy języka C++
+Typy danych
+a) Proste <-> Skalarne
+- arytmetyczne
+-- całkowitoliczbowe - int
+-- zmiennoprzecinkowe - float / double
+- znakowy - char
+- łańcuch - string
+- logiczny - bool
+b) Złożone
+- tablica
+- obiekt
+double - podwójna precyzja
+
+Składnia deklaracji zmiennej
+typ_danych nazwa_zmiennej;
+np.
+int a;
+int b;
+float c;
+c = a / b;
+
+Inicjalizacja
+typ_danych nazwa_zmiennej = wartosc;
+
+Stałe
+const typ_danych nazwa_stalej = wartosc;
+
+Deklaracja zmiennej z dedukcją typu
+decltype(zmienna_wzorcowa) nazwa_zmiennej;
+lub
+decltype(wyrażenie) nazwa_zmiennej;
+
+int zmienna1 {1};
+decltype(zmienna1) zmienna2;
+zmienna2 = 2;
+decltype(zmienna2 + 1) zmienna3;
+zmienna3 = 3;
+
+auto nazwa_zmiennej = wyrażenie;
+
+Operatory
+
+Arytmetyczne
++ - dodoawanie
+- - odejmowanie
+* - mnożenie
+/ - dzielenie
+% - reszta z dzielenia
+
+Inkrementacja
+pre - ++i
+post - i++
+
+Dekrementacja
+pre - --i
+post - i--
+
+Bitowe: &, ^, |, >>, <<, ~
+
+Logiczne: &&, ||, !
+
+Porównania: ==, !=, >, <, >=, <=
+
+Przypisania złożonego
+a += b
+
+Temat: 
+
+sizeof - zwraca rozmiar zmiennej w bajtach
+
+Operator przecinkowy:
+
+int bok1, bok2, pole;
+pole = (bok1 = 1, bok2 = 2, bok1 * bok2);
+
+Konwersja:
+
+a) niejawna (przez kompilotar po cichu)
+
+int zmiennaInt = 10;
+double zmiennaDouble = zmiennaInt + 1.5F; // 11.5
+zmiennaInt = zmiennaDouble; // 11
+
+b) jawna (manualnie)
+
+(nowy_typ) wyrażenie
+lub
+nowy_typ (wyrażenie)
+lub
+nowy_typ {wyrażenie}
+
+Rzutowanie
+
+static_cast – proste rzutowanie statyczne
+const_cast – rzutowanie pozwalające na zmianę modyfikatorów const i volatile
+reinterpret_cast – rzutowanie zmieniające sens
+interpretacyjny obszaru pamięci zajmowanego przez obiekt
+dynamic_cast – rzutowanie wskaźników do obiektów w trakcie wykonywania programu.
+
+typ obiekt = static_cast<typ>(obiekt_innego_typu);
+
+Przestrzeń nazw - grupowanie elementów pod względem logicznym
+
+namespace nazwa {
+	lista_deklaracji;
+ 	lista_definicji;
+}
+
+namespace boolean_namespace 
+{
+	bool typ_logiczny;
+	const bool prawda = true;
+	const bool falsz = false;
+}
+
+zad. 5 str. 100
+#include <iostream>
+
+int main() 
+{
+	//f(x) = ax + b
+	int a = 2, b = -4;
+
+	int x = -(b / a);
+	std::cout << "Miejsce zerowe funkcji wynosi " << x;
+}
+
+zad. 6 str. 100
+
+#include <iostream>
+
+int main() 
+{
+	const int ILOSC_PRZEDMIOTOW = 3;
+
+	int oceny[ILOSC_PRZEDMIOTOW];
+	std::string przedmioty[ILOSC_PRZEDMIOTOW] = { "angielski", "polski", "matematyka" };
+
+	int suma = 0;
+
+	for (int i = 0; i < ILOSC_PRZEDMIOTOW; i++) 
+	{
+		do {
+			std::cout << "przedmiot: " << przedmioty[i] << ", ocena: ";
+			std::cin >> oceny[i];
+		} while (oceny[i] < 1 || oceny[i] > 6);
+	}
+	
+	for (int i = 0; i < ILOSC_PRZEDMIOTOW; i++)
+	{
+		suma += oceny[i];
+	}
+
+	std::cout << "Srednia ocen wynosi: " << (float)suma / (float)ILOSC_PRZEDMIOTOW;
+}
+
+
+zad 3.18
+
+//Konwersja niejawna
+
+#include <iostream>
+
+int main()
+{
+	int zmiennaInt = 56;
+	float zmiennaFloat = 23.4567;
+
+	long zmiennaLong;
+	double zmiennaDouble;
+
+	zmiennaLong = zmiennaInt;
+	zmiennaDouble = zmiennaFloat;
+
+	std::cout << zmiennaLong << std::endl;
+	std::cout << zmiennaDouble << std::endl;
+}
+
+//Konwersja jawna
+
+#include <iostream>
+
+int main()
+{
+	int zmiennaInt = 56;
+	float zmiennaFloat = 23.4567;
+
+	std::cout << (long)zmiennaInt << std::endl;
+	std::cout << (double)zmiennaFloat << std::endl;
+}
+
+zad 3.20
+
+#include <iostream>
+
+int main()
+{
+	int dlugosc, szerokosc, wysokosc;
+	int powierzchnia_boczna, krawedzie, objetosc;
+
+	std::cout << "Wprowadz dlugosc: ";
+	std::cin >> dlugosc;
+
+	std::cout << "Wprowadz szerokosc: ";
+	std::cin >> szerokosc;
+
+	std::cout << "Wprowadz wysokosc: ";
+	std::cin >> wysokosc;
+
+	objetosc = wysokosc * szerokosc * dlugosc;
+	powierzchnia_boczna = 2 * wysokosc * (szerokosc + dlugosc);
+	krawedzie = 4 * dlugosc + 4 * szerokosc + 4 * wysokosc;
+
+	std::cout << "Objetosc prostopadloscianu: " << objetosc << std::endl;
+	std::cout << "Pole powierchni bocznej prostopadloscianu: " << powierzchnia_boczna << std::endl;
+	std::cout << "Suma dlugosci krawedzi prostopadloscianu: " << krawedzie << std::endl;
+}
+
+Temat: Instrukcja warunkowa 
+
+#include <iostream>
+
+float f(float x) {
+	if (x < 0) return -10;
+	else return 100;
+}
+
+int main()
+{
+	float x, y;
+
+	std::cout << "Wprowadz argument x: ";
+	std::cin >> x;
+
+	y = f(x);
+
+	std::cout << "Wartosc y wynosi: " << y;
+}
+
+#include <iostream>
+
+//int f(int x) {
+//	if (x < 0) return -10;
+//	else return 100;
+//}
+
+//float f(float x) {
+//	if (x < 0) return -10;
+//	if (x >= 0) return 100;
+//}
+
+int f(float x) {
+	if (x >= 0) {
+		if (x < 1) {
+			return 1;
+		}
+	}
+
+	if (x >= 1) {
+		if (x < 2) {
+			return 2;
+		}
+	}
+
+	if (x >= 2) return 3;
+	 
+	return -1;
+}
+
+
+int main()
+{
+	float x;
+	int y;
+
+	std::cout << "Wprowadz wartosc argumentu x: ";
+	std::cin >> x;
+
+	y = f(x);
+
+	std::cout << "Wartosc y wynosi: " << y;
+}
+
+int nr_lekcji;
+
+std::cout << "Wprowadz numer lekcji: ";
+std::cin >> nr_lekcji;
+
+
+switch (nr_lekcji) 
+{
+	case 1:
+		std::cout << "Obiektowe" << std::endl;
+		break;
+	case 2:
+		std::cout << "Obiektowe" << std::endl;
+		break;
+	case 3:
+		std::cout << "WF" << std::endl;
+		break;
+	case 4:
+		std::cout << "WF" << std::endl;
+		break;
+	case 5:
+		std::cout << "Internetowe" << std::endl;
+		break;
+	case 6:
+		std::cout << "Angielski" << std::endl;
+		break;
+	case 7:
+		std::cout << "Matematyka" << std::endl;
+		break;
+	case 8:
+		std::cout << "Niemiecki" << std::endl;
+		break;
+	default:
+		std::cout << "Zly numer lekcji sloneczko:3" << std::endl;
+}
+
+
+
+#include <iostream>
+
+int main()
+{
+	srand(time(NULL));
+	const int N = 10;
+
+	int liczby[N];
+
+	for (int i = 0; i < N; i++) 
+	{
+		liczby[i] = rand();
+	}
+
+	int suma = 0;
+	int max = liczby[0], min = liczby[0];
+
+	for (int i = 0;i < N;i++) 
+	{
+		if (liczby[i] > max) max = liczby[i];
+		if (liczby[i] < min) min = liczby[i];
+
+		suma += liczby[i];
+	}
+
+	std::cout << "Wylosowane liczby: " << std::endl;
+	for (int i = 0; i < N; i++)
+	{
+		std::cout << liczby[i] << std::endl;
+	}
+
+	std::cout << "Suma liczb: " << suma << std::endl;
+	std::cout << "Najwieksza liczba: " << max << std::endl;
+	std::cout << "Najmniejsza liczba: " << min << std::endl;
+}
+
+
+Temat: instrukcja iteracyjna FOR
+
+for (wyrażenie_inicjujace;wyrazenie_warukowe;wyrazenie_modyfikujace) {
+	// Instrukcje
+}
+
+
+zad. Wyświetl 10 kolejnych liczb nieparzystych rozpoczynając od liczby wprowadzonej przez użytkownika jeżeli użytkownik wprowadzi liczbę parzysta zaczynamy od kolejnej nieparzystej
+
+#include <iostream>
+
+int main()
+{
+    int n;
+
+    std::cout << "Wprowadz liczbe: ";
+    std::cin >> n;
+
+    if (n % 2 == 0) n++;
+
+    for (int i = n; i < n + 10 * 2; i += 2) {
+        std::cout << i << std::endl;
+    }
+}
+
+
+zad. Wyswietl 10 kolejnych poteg liczby 2
+
+#include <iostream>
+
+int main()
+{
+    int n = 1;
+
+    for (int i = 0; i < 10; i++) {
+        std::cout << n << std::endl;
+        n *= 2;
+    }
+}
+
+
+
+Temat: Pętla while
+
+while(wyrazenie_warunkowe) {
+	// Instrukcje
+}
+
+
+zad. n kolejnych liczb ciagu fibonaciego
+
+#include <iostream>
+
+int main()
+{
+    int n;
+
+    std::cout << "Wprowadz liczbe: ";
+    std::cin >> n;
+
+    int* arr = new int[n];
+
+    arr[0] = 0;
+    arr[1] = 1;
+
+    for (int i = 2; i < n; i++) {
+        arr[i] = arr[i - 1] + arr[i - 2];
+    }
+
+    for (int i = 0; i < n; i++) {
+        std::cout << arr[i] << std::endl;
+    }
+}
+
+
+zad. trojka pitagorejska to liczby naturalne a, b, c takie ze a < b < c, a^2 + b^2 = c^24
+zadanie sprowadza sie do wygenerowania wszystkich trojek liczb a, b, c z przedzialu od 1 do n spelniajacych te warunki a generujemy od 1 do n - 2, b generujemy od a + 1 do n - 1, c generujemy od b + 1 do n
+
+#include <iostream>
+
+int main()
+{
+    int n;
+
+    std::cout << "Wprowadz zakres: ";
+    std::cin >> n;
+
+    for (int a = 1; a <= n - 2; a++) 
+    {
+        for (int b = a + 1; b <= n - 1; b++) 
+        {
+            for (int c = b + 1; c <= n; c++) 
+            {
+                if ((a * a) + (b * b) == (c * c))
+                {
+                    std::cout << a << ", " << b << ", " << c << std::endl;
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
+

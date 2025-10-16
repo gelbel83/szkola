@@ -13,8 +13,10 @@ function binaryToDecimal(binary) {
 function decimalToBinary(decimal) {
     let binary = "";
 
-    while(decimal > 0) {
-        if(decimal % 2 === 0) binary = '0' + binary;
+    if (decimal == 0) return "0";
+
+    while (decimal > 0) {
+        if (decimal % 2 === 0) binary = '0' + binary;
         else binary = '1' + binary;
 
         decimal /= 2;
@@ -22,10 +24,6 @@ function decimalToBinary(decimal) {
     }
 
     return binary;
-}
-
-function removeSpaces(s) {
-    s.trim();
 }
 
 export {binaryToDecimal, decimalToBinary};

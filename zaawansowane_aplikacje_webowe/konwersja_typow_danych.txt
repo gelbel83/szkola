@@ -1,0 +1,20 @@
+Temat: Konwersja typów danych
+
+1. Array i NodeList
+
+	a. NodeList - specjalna kolekcja węzłów DOM, zwracana np. przez: 
+		- document.querySelectorAll()
+		- document.childNodes
+		- document.getElementsByClassName()
+
+	b. Czego NodeList nie ma w porównaniu z tablicą
+		- Metod tablicowych: map(), find(), filter(), some(), reduce(), include(), every(), etc.
+
+	c. Co NodeList posiada z tablicy
+		- indeksy
+		- length
+		- forEach()
+
+	d. Jak zamienic NodeList na Array
+		- Array.from(nodeList)
+		- [...nodeList] 

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta lang="pl" />
+        <meta charset="UTF-8" />
+        <title>Pola figur</title>
+        <link rel="stylesheet" href="styl.css" type="text/css" />
+    </head>
+
+    <body>
+        <header class="naglowkowy">
+            <h2>Pola figur płaskich</h2>
+        </header>
+
+        <main class="glowny">
+            <nav class="nawigacyjny">
+                <h3>MENU</h3>
+                <ul>
+                    <li><a href="index.html">Prostokąt i trójkąt</a></li>
+                    <li><a href="kolo.html">Okrąg i koło</a></li>
+                </ul>
+            </nav>
+
+            <section class="sekcji">
+                <img src="1d.bmp" alt="Figura" id="figura-image" />
+                <div>
+                    <img src="1m.bmp" alt="Wybierz trójkąt" class="wybierz" />
+                    <img src="2m.bmp" alt="Wybierz prostokąt" class="wybierz" />
+                </div>
+            </section>
+
+            <aside class="boczny">
+                <h3>Pole prostokąta / pole trójkąta</h3>
+
+                <label for="bok-podstawa-input">Bok prostokąta / podstawa trójkąta:</label> <br />
+                <input name="bok-podstawa-input" id="bok-podstawa-input" /> <br />
+
+                <label for="bok-wysokosc-input">Drugi bok prostokąta / wysokość trójkąta:</label> <br />
+                <input name="bok-wysokosc-input" id="bok-wysokosc-input" /> <br />
+
+                <button id="oblicz-button">Oblicz</button> <br />
+
+                <p id="wynik-paragraph"></p>
+            </aside>
+        </main>
+
+        <footer class="stopki">
+            <p>Autor: Konrad Goliński</p>
+        </footer>
+    </body>
+
+    <script>
+        let wybranaFigura = 1;
+
+        const wybierzImages = Array.from(document.getElementsByClassName('wybierz'));
+        const figuraImage = document.getElementById('figura-image');
+
+        for(let i = 0; i < wybierzImages.length;i++) {
+            wybierzImages[i].addEventListener('click', () => {
+                figuraImage.src = (i + 1) + 'd.bmp';
+                wybranaFigura = i + 1;
+            });
+        }
+        
+
+        const bokPodstawaInput = document.getElementById('bok-podstawa-input');
+        const bokWysokoscInput = document.getElementById('bok-wysokosc-input');
+        const wynikParagraph = document.getElementById('wynik-paragraph');
+        const obliczButton = document.getElementById('oblicz-button');
+
+        let bokPodstawa, bokWysokosc,  pole;
+
+        obliczButton.addEventListener('click', () => {
+            bokPodstawa = Number(bokPodstawaInput.value);
+            bokWysokosc = Number(bokWysokoscInput.value);
+
+            if (wybranaFigura == 1) {
+                pole = (bokPodstawa * bokWysokosc) / 2;
+            }
+            else {
+                pole = bokPodstawa * bokWysokosc;
+            }
+
+            wynikParagraph.innerText = pole;
+        });
+    </script>
+</html>

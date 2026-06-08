@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+	<head>
+		<meta lang="pl" />
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Panel produktów</title>
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
+	</head>
+
+	<body class="min-vh-100 d-flex flex-column bg-body-secondary">
+		<header class="text-center my-5">
+			<h1>PRODUKTY</h1>
+		</header>
+		
+		<main class="d-flex flex-column align-items-center justify-content-center">
+			<div class="card w-75 my-2">
+				<form>
+					<h3 class="card-header bg-white border-0">Dodaj</h3>
+					<div id="form-controls" class="d-lg-flex card-body text-center">
+						<input type="text" placeholder="Nazwa produktu" id="name-input" class="form-control m-1" minlength="3" maxlength="30" required />
+						<input type="text" placeholder="Kategoria" id="category-input" class="form-control m-1" minlength="3" maxlength="20" required/>
+						<input type="number" placeholder="Cena" id="price-input" class="form-control m-1" min="1" step="0.01" required />
+						<button id="add-product-button" class="form-control bg-primary text-white m-1">Zapisz</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="w-75 my-2" id="searchbar">
+				<input type="text" placeholder="Szukaj produktu..." id="searchbar-input" class="form-control" />
+			</div>
+
+			<div class="w-75 my-2">
+				<h4 id="product-count">Liczba produktów: 0</h4>
+				<div id="products-container" class="d-flex"></div>
+			</div>
+		</main>
+		
+	</body>
+	<script src="app.js"></script>
+</html>
